@@ -29,7 +29,6 @@ Post.init (
             }
         }
 
-        //add user_id reference from user model
     },
 
     {
@@ -40,4 +39,4 @@ Post.init (
       }
 )
 
-module.exports = User
+module.exports = Post

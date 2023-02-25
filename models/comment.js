@@ -33,9 +33,6 @@ Comment.init(
 
     },
 
-    // Add user_id(refernce user model)
-    // Add post_id(refernce post model)
-    //add 
 
 
 
