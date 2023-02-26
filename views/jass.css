@@ -1,0 +1,57 @@
+.signup {
+    width: 500px;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: bisque;
+}
+
+.parent-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-list {
+    display: flex;
+   list-style: none;
+    
+}
+
+.nav-links {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+li {
+    margin-left: 20px;
+}
+
+.main-nav{
+    margin-left: 15px;
+    margin-top: 10px;
+    background-color: brown;
+    border-color: rgb(255, 38, 172);
+    border-style: dotted;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+width: 600px;
+}
+
