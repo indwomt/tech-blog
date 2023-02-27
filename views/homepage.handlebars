@@ -1,0 +1,9 @@
+
+<div class="container d-flex-col col-8">
+    {{#each entries as |entry|}}
+    <div>
+        {{> indPost entry}}
+    </div>
+        {{> indComment entry.comments}}
+    {{/each}}
+    </div>

@@ -1,0 +1,20 @@
+
+    
+
+<br>
+<div class="container d-flex justify-content-center">
+    <div class="comments">
+    {{#each this}}
+    <div class="container d-flex">
+    <div class="card">
+        <div class="card-body">
+        <p class="card-text">{{comment_content}}</p> 
+        </div>
+    <h6 class="card-footer">Created by: {{user.user_name}} @ {{format_date created_at}}</h6>
+    </div>
+    </div>
+    <br>
+    {{/each}}
+</div>
+</div>
+</body>
