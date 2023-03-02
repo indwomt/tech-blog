@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const exphbs = require('express-handlebars')
 const routes = require('./controllers')
-const { Sequelize } = require('sequelize');
+// const {Sequelize} = require('sequelize');
 const sequelize = require('./config/connection')
 
 const app = express()
@@ -20,6 +20,9 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(routes);
+
+app.engine(`handlebars`, hbs.engine);
+app.set(`view engine`, `handlebars`);
 
 sequelize.sync({force:false}).then(()=> {
     app.listen(PORT, () => console.log('Now Listening'))

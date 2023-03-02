@@ -1,6 +1,6 @@
 const router = require('express').Router();
-const seqeulize = require('./config/connection')
-const {User, Post, Comment} = require('/models')
+// const seqeulize = require('./config/connection')
+const {User, Post, Comment} = require('../../models')
 
 
 // Getting data for ALL users, just their user info
