@@ -7,10 +7,7 @@ const router = require('express').Router()
 // /dashboard route
 
 router.get('/', auth, async (req, res) => {
-    const postData = await Post.findAll({
-        //  FIND LOGGED IN USER's ID THROUGH SESSION STORAGE
-    where: {
-        
-    }
-    })
+    res.status(200).json(message,"it works")
 })
+
+module.exports = router

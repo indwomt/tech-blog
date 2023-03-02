@@ -39,7 +39,7 @@ include: [
 )
 res.status(200).json(singleUser)})
 
-
+module.exports = router
 
 // /api/users
 
