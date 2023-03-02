@@ -1,6 +1,7 @@
 const router = require('express').Router();
 // const seqeulize = require('./config/connection')
 const {User, Post, Comment} = require('../../models')
+const bycrpt = require('bcrypt')
 
 
 // Getting data for ALL users, just their user info
@@ -23,14 +24,14 @@ router.get('/:id', async (req,res) =>{
 include: [
     {
         model: Post,
-        attributes:['id', 'post-title', 'post-content', 'user_id']
+        attributes:['id', 'post_title', 'post_content', 'user_id']
     },
     {
         model: Comment,
         attributes:['id','comment_content','user_id','post_id'],
         include: {
             model: Post,
-            attributes: ['id','post-title']
+            attributes: ['id','post_title']
         }
     }
 
@@ -53,12 +54,9 @@ router.post(`/`, async (req, res) => {
  
          req.session.user_id = dbUser.id;
          req.session.name = dbUser.name;
-         req.session.loggedIn = true;
- 
-         res.json(dbUser)
-        
-     })
-     res.json(dbUser)
+         req.session.loggedIn = true;        
+    })
+    res.json(dbUser)
     } catch (err) {
      res.status(500).json(err)
     }
