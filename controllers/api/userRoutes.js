@@ -39,6 +39,31 @@ include: [
 )
 res.status(200).json(singleUser)})
 
+
+
+
+router.post(`/`, async (req, res) => {
+    try {
+     const dbUser = await  User.create({
+         name: req.body.name,
+         email: req.body.email,
+         password: req.body.password
+     })
+     req.session.save( () => {
+ 
+         req.session.user_id = dbUser.id;
+         req.session.name = dbUser.name;
+         req.session.loggedIn = true;
+ 
+         res.json(dbUser)
+        
+     })
+     res.json(dbUser)
+    } catch (err) {
+     res.status(500).json(err)
+    }
+ })
+
 module.exports = router
 
 // /api/users
