@@ -62,6 +62,31 @@ router.post(`/`, async (req, res) => {
     }
  })
 
+
+
+
+router.put('/:id', async (req,res) => {
+    User.update(
+        {
+            name: req.body.name
+        },{
+        where: {
+            id: req.params.id
+        }}
+    )
+})
+
+
+router.delete('/:id', (req,res) =>
+{
+    User.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+})
+
+
 module.exports = router
 
 // /api/users
