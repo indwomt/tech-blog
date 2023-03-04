@@ -28,7 +28,7 @@ router.post('/', async (req, res) => {
     })
 
 
-// troubleshoot
+
 // /api/users/id endpoint 
 router.get('/:id', async (req, res) => {
     try {
@@ -79,14 +79,31 @@ router.get('/:id', async (req, res) => {
     })
 
 
-router.delete('/:id', async (req,res) => {
-
-})
+// 
 
 
 
 
-
+router.delete('/:id', withAuth, (req, res) => {
+  Post.destroy({
+          where: {
+              id: req.params.id,
+          },
+      })
+      .then((deletedPost) => {
+          if (!deletedPost) {
+              res.status(404).json({
+                  message: "No post found with this id"
+              });
+              return;
+          }
+          res.json(deletedPost);
+      })
+      .catch((err) => {
+          console.log(err);
+          res.status(500).json(err);
+      });
+});
 
 
 
