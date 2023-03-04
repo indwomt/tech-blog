@@ -1,3 +1,5 @@
+const express = require('express')
+const router = express.Router()
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
@@ -38,4 +40,4 @@ Comment.init(
   }
 );
 
-module.exports = Comment;
+module.exports = router;
