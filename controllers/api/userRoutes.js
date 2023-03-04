@@ -3,7 +3,7 @@ const router = require('express').Router();
 const {User, Post, Comment} = require('../../models')
 const bycrpt = require('bcrypt')
 
-
+// WORKS
 // Getting data for ALL users, just their user info
 router.get('/', async (req,res) =>{
     const allUsers = await User.findAll({
@@ -13,7 +13,7 @@ router.get('/', async (req,res) =>{
     res.json(allUsers)
 })
 
-
+// WORKS
 // /api/users/id endpoint 
 router.get('/:id', async (req,res) =>{
     const singleUser = await User.findOne({
@@ -42,7 +42,7 @@ res.status(200).json(singleUser)})
 
 
 
-
+// WORKS
 router.post(`/`, async (req, res) => {
     try {
      const dbUser = await  User.create({
@@ -64,7 +64,7 @@ router.post(`/`, async (req, res) => {
 
 
 
-
+// WORKS
 router.put('/:id', async (req,res) => {
     User.update(
         {

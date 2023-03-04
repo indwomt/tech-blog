@@ -66,7 +66,7 @@ router.get('/:id', async (req, res) => {
 
 // troubleshoot
     router.put('/:id', async (req,res) => {
-        Post.update(
+      const updatedPost = await Post.update(
             {
                 post_title: req.body.post_title,
                 post_content: req.body.post_content
@@ -74,8 +74,10 @@ router.get('/:id', async (req, res) => {
             },{
             where: {
                 id: req.params.id
-            }}
+            },
+          }
         )
+        res.status(200).json(updatedPost)
     })
 
 
