@@ -32,10 +32,9 @@ router.post('/', async (req, res) => {
 // /api/users/id endpoint 
 router.get('/:id', async (req, res) => {
     try {
-      const singlePost = await Post.findAll({
-        where: {
-          id: req.params.id
-        },
+      const singlePost = await Post.findByPk(req.params.id, {
+
+      
         attributes: ['id', 'post_title', 'post_content', 'user_id'],
         include: [
           {

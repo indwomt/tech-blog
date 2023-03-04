@@ -3,6 +3,9 @@ const router = express.Router()
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+const User = require('../models/User'); // import User model
+const Post = require('../models/Post'); // import Post model
+
 class Comment extends Model {}
 
 Comment.init(
@@ -20,14 +23,14 @@ Comment.init(
     user_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'User',
+        model: User,
         key: 'id',
       },
     },
     post_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'post',
+        model: Post,
         key: 'id',
       },
     },
@@ -36,8 +39,8 @@ Comment.init(
     sequelize, // pass the Sequelize instance here
     freezeTableName: true,
     underscored: true,
-    modelName: 'comment',
+    modelName: 'Comment',
   }
 );
 
-module.exports = router;
+module.exports = Comment;
