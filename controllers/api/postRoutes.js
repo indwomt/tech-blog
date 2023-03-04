@@ -6,7 +6,9 @@ const {User, Post, Comment} = require('../../models')
 
 
 router.get('/', async (req,res) => {
-res.status(200).json({message: "route ok"})
+const allPosts = await Post.findAll({
+})
+res.json(allPosts)
 })
 
 router.post('/', async (req, res) => {
@@ -24,6 +26,17 @@ router.post('/', async (req, res) => {
 
 
 router.put(':/id', async (req,res) =>{
+    router.put('/:id', async (req,res) => {
+        Post.update(
+            {
+                post_title: req.body.post_title,
+                post_content: req.body.post_title
+            },{
+            where: {
+                id: req.params.id
+            }}
+        )
+    })
 
 })
 
