@@ -3,8 +3,8 @@ const router = express.Router()
 const { Sequelize, Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-const User = require('../models/User'); // import User model
-const Post = require('../models/Post'); // import Post model
+const User = require('../../models/User'); // import User model
+const Post = require('../../models/Post'); // import Post model
 
 class Comment extends Model {}
 

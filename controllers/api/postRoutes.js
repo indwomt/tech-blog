@@ -4,7 +4,7 @@ const router = require('express').Router();
 // const seqeulize = require('./config/connection')
 const {User, Post, Comment} = require('../../models')
 
-
+// WORKS
 router.get('/', async (req, res) => {
     try {
       const allPosts = await Post.findAll({});
@@ -14,6 +14,8 @@ router.get('/', async (req, res) => {
     }
   });
 
+
+  // WORKS
 router.post('/', async (req, res) => {
     try {
         const newPost = await Post.create({
@@ -28,7 +30,7 @@ router.post('/', async (req, res) => {
     })
 
 
-
+// WORKS
 // /api/users/id endpoint 
 router.get('/:id', async (req, res) => {
     try {
@@ -63,7 +65,7 @@ router.get('/:id', async (req, res) => {
 
 
 
-
+// WORKS
 // troubleshoot
     router.put('/:id', async (req,res) => {
       const updatedPost = await Post.update(
@@ -85,7 +87,7 @@ router.get('/:id', async (req, res) => {
 
 
 
-
+// WORKS
 router.delete('/:id',  (req, res) => {
   Post.destroy({
           where: {
